@@ -22,4 +22,20 @@
 
     add_action( 'after_setup_theme', '__theme_setup' );
 
+    function __theme_styles() {
+
+        wp_enqueue_style( 'transistor',
+            get_stylesheet_directory_uri() . '/style.css'
+        );
+
+        wp_enqueue_style( 'transistor-global',
+            get_stylesheet_directory_uri() . '/src/global.css'
+        );
+
+        wp_enqueue_style( 'dashicons' );
+
+    }
+
+    add_action( 'wp_enqueue_scripts', '__theme_styles' );
+
 ?>
