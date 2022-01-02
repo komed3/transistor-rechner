@@ -23,7 +23,7 @@
                 </nav>
                 <a href="https://paypal.me/komed3" class="donate" target="_blank">
                     <span class="dashicons dashicons-heart"></span>
-                    <?php _e( 'Donate', 'transistor' ); ?>
+                    <span class="text"><?php _e( 'Donate', 'transistor' ); ?></span>
                 </a>
             </div>
         </header>
