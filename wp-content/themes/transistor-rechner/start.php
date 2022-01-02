@@ -7,8 +7,7 @@
 
     get_header();
 
-    echo '...';
-
-    get_footer();
-
 ?>
+<div class="start">
+</div>
+<?php get_footer(); ?>
