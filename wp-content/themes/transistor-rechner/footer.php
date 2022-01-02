@@ -1,4 +1,4 @@
-</main>
+                </main>
                 <footer id="footer">
                     <div class="footer-inner">
                         <nav>
@@ -10,7 +10,8 @@
                         </nav>
                         <div class="credits">
                             <?php printf(
-                                __( '<a href="%s">%s</a> &copy; %s by <a href="%s">%s</a>. All rights reserved', 'transistor' ),
+                                __( '<a href="%s">%s</a> &copy; %s by <a href="%s" target="_blank">%s</a>. ' .
+                                    'All rights reserved.', 'transistor' ),
                                 home_url( '/' ),
                                 get_bloginfo( 'title' ),
                                 wp_date( 'Y' ),
