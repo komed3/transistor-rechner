@@ -104,3 +104,8 @@ article {
     border-radius: 30px;
     box-shadow: var( --box-shadow );
 }
+
+article .body {
+    font-size: 1.1em;
+    opacity: 0.8;
+}
