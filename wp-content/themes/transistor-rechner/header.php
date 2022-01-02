@@ -21,6 +21,10 @@
                         'fallback_cb' => false
                     ] ); ?>
                 </nav>
+                <a href="https://paypal.me/komed3" class="donate" target="_blank">
+                    <span class="dashicons dashicons-heart"></span>
+                    <?php _e( 'Donate', 'transistor' ); ?>
+                </a>
             </div>
         </header>
         <main class="clearfix">

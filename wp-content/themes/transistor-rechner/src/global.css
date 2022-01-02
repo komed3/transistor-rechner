@@ -127,6 +127,10 @@ article .body {
     opacity: 0.8;
 }
 
+body.home article h1 {
+    display: none;
+}
+
 /* FOOTER */
 
 footer {
