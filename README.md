@@ -1,3 +1,3 @@
 # 8-Bit ALU
 
-This is the official website for the 8-Bit ALU project.
+A technical landing page for the transistor-based 8-bit Arithmetic Logic Unit project.
