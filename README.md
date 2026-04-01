@@ -1,2 +1,3 @@
-# transistor-rechner
- WordPress plugin + theme for transistor-rechner.de
+# 8-Bit ALU
+
+This is the official website for the 8-Bit ALU project.
