@@ -1,5 +1,5 @@
 export const CircuitBackground = () => {
-    return ( <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-[0.035]">
+    return ( <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-[0.1]">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <pattern id="circuit-pattern" x="0" y="0" width="304" height="304" patternUnits="userSpaceOnUse">
