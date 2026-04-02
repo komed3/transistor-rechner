@@ -10,14 +10,18 @@ export const CustomCursor = () => {
             setPosition( { x: e.clientX, y: e.clientY } );
             if ( ! visible ) setVisible( true );
         };
+
+        const handleMouseDown = ( e: MouseEvent ) => { if ( e.button === 1 ) e.preventDefault() };
         const handleLeave = () => setVisible( false );
         const handleEnter = () => setVisible( true );
 
+        window.addEventListener( 'mousedown', handleMouseDown );
         window.addEventListener( 'mousemove', updatePosition );
         document.addEventListener( 'mouseleave', handleLeave );
         document.addEventListener( 'mouseenter', handleEnter );
 
         return () => {
+            window.removeEventListener( 'mousedown', handleMouseDown );
             window.removeEventListener( 'mousemove', updatePosition );
             document.removeEventListener( 'mouseleave', handleLeave );
             document.removeEventListener( 'mouseenter', handleEnter );
