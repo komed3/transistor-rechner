@@ -97,6 +97,29 @@ export const Simulator = ( { t }: Translation ) => {
 
     const aEqB = regA === regB;
     const aGtB = regA > regB;
+    
+    const BitRow = ( { label, value, onToggle }: { label: string, value: number, onToggle: ( bit: number ) => void } ) => (
+        <div className="space-y-2">
+            <div className="flex justify-between items-center">
+                <div className="text-xs font-black opacity-50">{ label }</div>
+                <div className="text-xs font-mono text-alu-blue font-bold">
+                    { t.hex }: { value.toString( 16 ).toUpperCase().padStart( 2, '0' ) } | { t.dec }: { value }
+                </div>
+            </div>
+            <div className="flex gap-1 sm:gap-2">
+                { [7, 6, 5, 4, 3, 2, 1, 0].map( bit => (
+                <button
+                    key={bit}
+                    onClick={ () => onToggle( bit ) }
+                    className={`w-7 h-7 sm:w-10 sm:h-10 border-2 font-black text-xs sm:text-sm flex items-center justify-center transition-all cursor-pointer ${
+                    ( value & ( 1 << bit ) ) ? "bg-alu-green text-black border-alu-green" : "border-alu-white/30 hover:border-alu-white"
+                }` }
+                >
+                    { ( value & ( 1 << bit ) ) ? '1' : '0' }
+                </button>
+            ) ) }
+        </div>
+    </div> );
 
     return ( <BrutalistSection title={ t.simulatorTitle } color="yellow">
         <p className="text-lg mb-8 font-bold text-alu-yellow">{ t.simulatorDesc }</p>
