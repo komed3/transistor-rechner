@@ -13,20 +13,20 @@ export const Simulator = ( { t }: Translation ) => {
     const [ selectedOp, setSelectedOp ] = useState( 'add' );
 
     const OP_CONFIGS: Record< string, Partial< typeof ctrl > > = {
-        add: { invA: false, invB: false, inhC: false, inhAND: false, cin: false, invX: false, rs: false, ls: false },
-        notA: { invA: true, invB: false, inhC: false, inhAND: false, cin: false, invX: false, rs: false, ls: false },
-        notB: { invA: false, invB: true, inhC: false, inhAND: false, cin: false, invX: false, rs: false, ls: false },
-        xor: { invA: false, invB: false, inhC: true, inhAND: false, cin: false, invX: false, rs: false, ls: false },
-        or: { invA: false, invB: false, inhC: false, inhAND: true, cin: false, invX: false, rs: false, ls: false },
-        nand: { invA: true, invB: true, inhC: false, inhAND: true, cin: false, invX: false, rs: false, ls: false },
-        inc: { invA: false, invB: false, inhC: false, inhAND: false, cin: true, invX: false, rs: false, ls: false },
-        sub: { invA: false, invB: true, inhC: false, inhAND: false, cin: true, invX: false, rs: false, ls: false },
-        notX: { invA: false, invB: false, inhC: false, inhAND: false, cin: false, invX: true, rs: false, ls: false },
-        xnor: { invA: false, invB: false, inhC: true, inhAND: false, cin: false, invX: true, rs: false, ls: false },
-        nor: { invA: false, invB: false, inhC: false, inhAND: true, cin: false, invX: true, rs: false, ls: false },
-        and: { invA: true, invB: true, inhC: false, inhAND: true, cin: false, invX: true, rs: false, ls: false },
-        lsr: { invA: false, invB: false, inhC: false, inhAND: false, cin: false, invX: false, rs: true, ls: false },
-        lsl: { invA: false, invB: false, inhC: false, inhAND: false, cin: false, invX: false, rs: false, ls: true }
+        add:  { invA: false, invB: false, inhC: false, inhAND: false, cin: false, invX: false, rs: false, ls: false },
+        notA: { invA: true,  invB: false, inhC: false, inhAND: false, cin: false, invX: false, rs: false, ls: false },
+        notB: { invA: false, invB: true,  inhC: false, inhAND: false, cin: false, invX: false, rs: false, ls: false },
+        xor:  { invA: false, invB: false, inhC: true,  inhAND: false, cin: false, invX: false, rs: false, ls: false },
+        or:   { invA: false, invB: false, inhC: false, inhAND: true,  cin: false, invX: false, rs: false, ls: false },
+        nand: { invA: true,  invB: true,  inhC: false, inhAND: true,  cin: false, invX: false, rs: false, ls: false },
+        inc:  { invA: false, invB: false, inhC: false, inhAND: false, cin: true,  invX: false, rs: false, ls: false },
+        sub:  { invA: false, invB: true,  inhC: false, inhAND: false, cin: true,  invX: false, rs: false, ls: false },
+        notX: { invA: false, invB: false, inhC: false, inhAND: false, cin: false, invX: true,  rs: false, ls: false },
+        xnor: { invA: false, invB: false, inhC: true,  inhAND: false, cin: false, invX: true,  rs: false, ls: false },
+        nor:  { invA: false, invB: false, inhC: false, inhAND: true,  cin: false, invX: true,  rs: false, ls: false },
+        and:  { invA: true,  invB: true,  inhC: false, inhAND: true,  cin: false, invX: true,  rs: false, ls: false },
+        lsr:  { invA: false, invB: false, inhC: false, inhAND: false, cin: false, invX: false, rs: true,  ls: false },
+        lsl:  { invA: false, invB: false, inhC: false, inhAND: false, cin: false, invX: false, rs: false, ls: true  }
     };
 
     useEffect( () => {
@@ -192,7 +192,7 @@ export const Simulator = ( { t }: Translation ) => {
                     </div>
                     <div className="flex gap-1">
                         { finalX.toString( 2 ).padStart( 8, '0' ).split( '' ).map( ( bit: string, i: number ) => (
-                            <div key={ i } className={ `flex-grow h-2 ${ bit === '1' ? 'bg-alu-pink' : 'bg-alu-pink/10' }` } />
+                            <div key={ i } className={ `flex-grow h-2 ${ bit === '1' ? 'bg-alu-pink' : 'bg-alu-pink/20' }` } />
                         ) ) }
                     </div>
                 </div>
@@ -204,16 +204,16 @@ export const Simulator = ( { t }: Translation ) => {
                             const values = [ c, v, s, z, ! p, h ];
                             const isActive = values[ i ];
                             return ( <div key={ i } className={ `border-2 p-2 text-center transition-all ${
-                                isActive ? 'border-alu-green bg-alu-green text-black' : 'border-alu-white/10 text-alu-white/30'
+                                isActive ? 'border-alu-green bg-alu-green text-black' : 'border-alu-white/20 text-alu-white/30'
                             }` }>
                                 <div className="text-[9px] sm:text-[10px] font-black uppercase tracking-tighter leading-none">{ flag.name }</div>
                             </div> );
                         } ) }
                     </div>
-                    <div className="mt-auto pt-6 flex gap-4 border-t-2 border-alu-white/10">
-                        <div className={ `flex-grow border-2 p-2 text-center text-[10px] font-black ${ aEqB ? 'border-alu-yellow text-alu-yellow' : 'border-alu-white/5 text-alu-white/10' }` }>A=B</div>
-                        <div className={ `flex-grow border-2 p-2 text-center text-[10px] font-black ${ aGtB ? 'border-alu-yellow text-alu-yellow' : 'border-alu-white/5 text-alu-white/10' }` }>A&gt;B</div>
-                        <div className={ `flex-grow border-2 p-2 text-center text-[10px] font-black ${ ( ! aEqB && ! aGtB ) ? 'border-alu-yellow text-alu-yellow' : 'border-alu-white/5 text-alu-white/10' }` }>A&lt;B</div>
+                    <div className="mt-auto pt-6 flex gap-4">
+                        <div className={ `flex-grow border-2 p-2 text-center text-[10px] font-black ${ aEqB ? 'border-alu-yellow text-alu-yellow' : 'border-alu-white/5 text-alu-white/20' }` }>A=B</div>
+                        <div className={ `flex-grow border-2 p-2 text-center text-[10px] font-black ${ aGtB ? 'border-alu-yellow text-alu-yellow' : 'border-alu-white/5 text-alu-white/20' }` }>A&gt;B</div>
+                        <div className={ `flex-grow border-2 p-2 text-center text-[10px] font-black ${ ( ! aEqB && ! aGtB ) ? 'border-alu-yellow text-alu-yellow' : 'border-alu-white/5 text-alu-white/20' }` }>A&lt;B</div>
                     </div>
                 </div>
             </div>
