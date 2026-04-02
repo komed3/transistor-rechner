@@ -36,7 +36,7 @@ export const Output = ( { t }: Translation ) => {
             </h2>
             <p className="text-base md:text-lg mb-8 text-gray-300">{ t.comparatorDesc }</p>
 
-            <div className="space-y-16">
+            <div className="space-y-8">
                 { t.comparatorOutputs.map( ( out: { name: string; desc: string }, i: number ) => (
                     <div key={ i } className="border-4 border-alu-pink p-4 brutalist-shadow">
                         <div className="text-xl md:text-2xl font-black mb-1 text-alu-pink">{ out.name }</div>
