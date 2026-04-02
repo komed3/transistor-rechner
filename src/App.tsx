@@ -4,6 +4,7 @@ import { translations } from './translations';
 import { CircuitBackground } from './components/CircuitBackground';
 import { CustomCursor } from './components/CustomCursor';
 import { Footer } from './components/Footer';
+import { Functions } from './components/Functions';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Inputs } from './components/Inputs';
@@ -18,11 +19,12 @@ export default function App () {
         <CustomCursor />
         <CircuitBackground />
         <ScanLine />
-        
+
         <Header t={t} lang={lang} setLang={setLang} />
         <main className="max-w-7xl mx-auto w-full z-10">
             <Hero t={t} />
             <Inputs t={t} />
+            <Functions t={t} />
         </main>
         <Footer t={t} />
     </div> );

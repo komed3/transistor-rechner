@@ -10,7 +10,7 @@ export const Header = ( { t, lang, setLang }: Translation & Language ) => {
         </div>
 
         <div className="flex flex-wrap gap-4">
-            <button 
+            <button
                 onClick={ () => setLang( lang === 'en' ? 'de' : 'en' )}
                 className="bg-alu-yellow text-black px-4 md:px-6 py-2 md:py-3 font-black brutalist-shadow-blue border-4 border-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-pointer flex items-center gap-2 text-sm md:text-base"
             >
@@ -18,9 +18,9 @@ export const Header = ( { t, lang, setLang }: Translation & Language ) => {
                 { lang.toUpperCase() }
             </button>
 
-            <a 
-                href="https://github.com/komed3/8-bit-alu" 
-                target="_blank" 
+            <a
+                href="https://github.com/komed3/8-bit-alu"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="bg-alu-green text-black px-4 md:px-6 py-2 md:py-3 font-black brutalist-shadow border-4 border-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-pointer flex items-center gap-2 text-sm md:text-base"
             >
