@@ -28,6 +28,6 @@ export const CustomCursor = () => {
 
     return ( <div
         className="custom-cursor hidden md:block"
-        style={ { left: position.x, top: position.y, } }
+        style={ { left: position.x, top: position.y } }
     /> );
 };
