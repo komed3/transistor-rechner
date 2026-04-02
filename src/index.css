@@ -1,1 +1,28 @@
 @import 'tailwindcss';
+
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-size: 100 900;
+    src: url( ../assets/JetBrainsMono.woff2 ) format( 'woff2' );
+}
+
+@theme {
+    --font-mono: 'JetBrains Mono', monospace;
+    --color-alu-green: #00ff41;
+    --color-alu-blue: #00f0ff;
+    --color-alu-pink: #ff00ff;
+    --color-alu-yellow: #ffff00;
+    --color-alu-bg: #000000;
+    --color-alu-white: #ffffff;
+}
+
+@layer base {
+    body {
+        @apply bg-alu-bg text-alu-white font-mono selection:bg-alu-yellow selection:text-black cursor-none overflow-x-hidden;
+    }
+
+    *, *::before, *::after {
+        cursor: none !important;
+    }
+}
