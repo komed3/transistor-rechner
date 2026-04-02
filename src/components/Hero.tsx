@@ -22,7 +22,7 @@ export const Hero = ( { t }: Translation ) => {
                 <div className="flex items-center gap-2 bg-alu-pink text-black p-4 font-black brutalist-shadow text-sm md:text-base">
                     <EthernetPort /> 8-BIT_PROCESSING_SPAN
                 </div>
-                <div className="flex items-center gap-2 bg-alu-green text-black p-4 font-black brutalist-shadow-blue text-sm md:text-base">
+                <div className="flex items-center gap-2 bg-alu-yellow text-black p-4 font-black brutalist-shadow-blue text-sm md:text-base">
                     <Cpu /> NO_INTEGRATED_CIRCUITS
                 </div>
             </div>
