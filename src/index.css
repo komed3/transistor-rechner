@@ -62,3 +62,38 @@
 * {
     @apply rounded-none;
 }
+
+/* Custom Cursor */
+
+.custom-cursor {
+    pointer-events: none;
+    position: fixed;
+    transform: translate( -50%, -50% );
+    z-index: 9999;
+    width: 24px;
+    height: 24px;
+    background: #ffffff;
+    mix-blend-mode: difference;
+}
+
+.custom-cursor::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+    width: 2px;
+    height: 20px;
+    background: #000;
+}
+
+.custom-cursor::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+    width: 20px;
+    height: 2px;
+    background: #000;
+}
