@@ -10,7 +10,7 @@ interface BrutalistSectionProps {
 
 export const BrutalistSection = ( { title, children, color = 'white', id }: BrutalistSectionProps ) => {
     const borderClass = 'border-4 border-alu-white';
-    const shadowClass = 'brutalist-shadow-' + color;
+    const shadowClass = color === 'white' ? 'brutalist-shadow' : `brutalist-shadow-${ color }`;
 
     return ( <section id={ id } className="mb-24">
         <div className={ `inline-block px-6 py-2 bg-alu-white text-black font-black text-2xl mb-4 ${ shadowClass }` }>{ title }</div>
