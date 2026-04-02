@@ -23,15 +23,15 @@ export default function App () {
         <CircuitBackground />
         <ScanLine />
 
-        <Header t={t} lang={lang} setLang={setLang} />
+        <Header t={ t } lang={ lang } setLang={ setLang } />
         <main className="max-w-7xl mx-auto w-full z-10">
-            <Hero t={t} />
-            <Simulator t={t} />
-            <Inputs t={t} />
-            <Functions t={t} />
-            <Table t={t} />
-            <Output t={t} />
+            <Hero t={ t } />
+            <Simulator t={ t } />
+            <Inputs t={ t } />
+            <Functions t={ t } />
+            <Table t={ t } />
+            <Output t={ t } />
         </main>
-        <Footer t={t} />
+        <Footer t={ t } />
     </div> );
 }
