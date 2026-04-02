@@ -4,7 +4,7 @@
 @font-face {
     font-family: 'JetBrains Mono';
     font-size: 100 900;
-    src: url( ../assets/JetBrainsMono.woff2 ) format( 'woff2' );
+    src: url( ./assets/JetBrainsMono.woff2 ) format( 'woff2' );
 }
 
 @theme {
