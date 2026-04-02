@@ -105,10 +105,10 @@ export const translations = {
         statusRegisterTitle: "STATUSREGISTER-FLAGS",
         flags: [
             { f: "C", name: "Carry", desc: "Ermöglicht Arithmetik über Wortgrenzen hinweg durch Übertrag." },
-            { f: "V", name: "Overflow", desc: "Zeigt an, dass das vorzeichenbehaftete Ergebnis zu groß für das Register ist." },
-            { f: "S", name: "Sign", desc: "Zeigt an, dass das Ergebnis einer Operation negativ ist." },
-            { f: "Z", name: "Zero", desc: "Zeigt an, dass das Ergebnis der Operation Null war." },
-            { f: "P", name: "Parity", desc: "Zeigt an, ob die Anzahl der gesetzten Bits gerade oder ungerade ist (Odd=1)." },
+            { f: "V", name: "Overflow", desc: "Vorzeichenbehaftetes Ergebnis ist zu groß für das Register." },
+            { f: "S", name: "Sign", desc: "Ergebnis einer Operation ist negativ." },
+            { f: "Z", name: "Zero", desc: "Ergebnis der Operation war Null." },
+            { f: "P", name: "Parity", desc: "Anzahl der gesetzten Bits ist gerade oder ungerade (Odd=1)." },
             { f: "H", name: "Half-carry", desc: "Übertrag zwischen den Nibbles (4-Bit-Hälften)." }
         ],
         comparatorTitle: "GRÖSSENVERGLEICHER",
