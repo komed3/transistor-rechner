@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { translations } from './translations';
 import { CircuitBackground } from './components/CircuitBackground';
@@ -15,7 +15,12 @@ import { Table } from './components/Table';
 
 
 export default function App () {
-    const [ lang, setLang ] = useState< 'en' | 'de' >( 'en' );
+    const [ lang, setLang ] = useState< 'en' | 'de' >( () => {
+        const saved = localStorage.getItem( '8b-lang' );
+        return ( saved === 'en' || saved === 'de' ) ? saved : 'en';
+    } );
+
+    useEffect( () => localStorage.setItem( '8b-lang', lang ), [ lang ] );
     const t = translations[ lang ];
 
     return ( <div className="relative min-h-screen flex flex-col p-4 md:p-12 bg-alu-bg text-alu-white overflow-x-hidden">
