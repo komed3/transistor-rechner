@@ -9,6 +9,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Inputs } from './components/Inputs';
 import { ScanLine } from './components/ScanLine';
+import { Table } from './components/Table';
 
 
 export default function App () {
@@ -25,6 +26,7 @@ export default function App () {
             <Hero t={t} />
             <Inputs t={t} />
             <Functions t={t} />
+            <Table t={t} />
         </main>
         <Footer t={t} />
     </div> );
