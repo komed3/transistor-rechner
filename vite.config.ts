@@ -4,9 +4,21 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
+
+const cnamePlugin = () => ( {
+    name: 'cname-plugin',
+    generateBundle () {
+        this.emitFile( {
+            type: 'asset',
+            fileName: 'CNAME',
+            source: 'transistor-rechner.de'
+        } );
+    }
+} );
+
 export default defineConfig( () => {
     return {
-        plugins: [ react(), tailwindcss() ],
+        plugins: [ react(), tailwindcss(), cnamePlugin() ],
         resolve: { alias: { '@': resolve( __dirname, '.' ) } },
         build: {
             chunkSizeWarningLimit: 2000,
