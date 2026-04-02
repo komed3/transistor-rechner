@@ -124,7 +124,8 @@ export const Simulator = ( { t }: Translation ) => {
     return ( <BrutalistSection title={ t.simulatorTitle } color="yellow">
         <p className="text-lg mb-8 font-bold text-alu-yellow">{ t.simulatorDesc }</p>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            {/* Inputs */}
+
+            {/** Inputs */}
             <div className="lg:col-span-7 space-y-8">
                 <BitRow label={ t.registerA } value={ regA } onToggle={ ( bit ) => setRegA( toggleBit( regA, bit ) ) } />
                 <BitRow label={ t.registerB } value={ regB } onToggle={ ( bit ) => setRegB( toggleBit( regB, bit ) ) } />
@@ -172,6 +173,47 @@ export const Simulator = ( { t }: Translation ) => {
                                 { t.clear }
                             </button>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            {/** Results */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
+                <div className="border-4 border-alu-white p-6 brutalist-shadow-pink bg-black">
+                    <div className="text-xs font-black mb-4 text-alu-pink">{ t.outputX }</div>
+                    <div className="flex justify-between items-end mb-4">
+                        <div className="text-4xl sm:text-6xl font-black tracking-tighter">
+                            { finalX.toString( 16 ).toUpperCase().padStart( 2, '0' ) }
+                        </div>
+                        <div className="text-right font-mono text-xs opacity-50">
+                            { t.dec }: { finalX }<br />
+                            { t.bin }: { finalX.toString( 2 ).padStart( 8, '0' ) }
+                        </div>
+                    </div>
+                    <div className="flex gap-1">
+                        { finalX.toString( 2 ).padStart( 8, '0' ).split( '' ).map( ( bit: string, i: number ) => (
+                            <div key={ i } className={ `flex-grow h-2 ${ bit === '1' ? 'bg-alu-pink' : 'bg-alu-pink/10' }` } />
+                        ) ) }
+                    </div>
+                </div>
+
+                <div className="border-4 border-alu-white p-6 brutalist-shadow-green bg-black flex-grow flex flex-col">
+                    <div className="text-xs font-black mb-4 text-alu-green">{ t.statusRegister }</div>
+                    <div className="grid grid-cols-3 gap-2">
+                        { t.flags.map( ( flag: any, i: number ) => {
+                            const values = [ c, v, s, z, ! p, h ];
+                            const isActive = values[ i ];
+                            return ( <div key={ i } className={ `border-2 p-2 text-center transition-all ${
+                                isActive ? 'border-alu-green bg-alu-green text-black' : 'border-alu-white/10 text-alu-white/30'
+                            }` }>
+                                <div className="text-[9px] sm:text-[10px] font-black uppercase tracking-tighter leading-none">{ flag.name }</div>
+                            </div> );
+                        } ) }
+                    </div>
+                    <div className="mt-auto pt-6 flex gap-4 border-t-2 border-alu-white/10">
+                        <div className={ `flex-grow border-2 p-2 text-center text-[10px] font-black ${ aEqB ? 'border-alu-yellow text-alu-yellow' : 'border-alu-white/5 text-alu-white/10' }` }>A=B</div>
+                        <div className={ `flex-grow border-2 p-2 text-center text-[10px] font-black ${ aGtB ? 'border-alu-yellow text-alu-yellow' : 'border-alu-white/5 text-alu-white/10' }` }>A&gt;B</div>
+                        <div className={ `flex-grow border-2 p-2 text-center text-[10px] font-black ${ ( ! aEqB && ! aGtB ) ? 'border-alu-yellow text-alu-yellow' : 'border-alu-white/5 text-alu-white/10' }` }>A&lt;B</div>
                     </div>
                 </div>
             </div>
