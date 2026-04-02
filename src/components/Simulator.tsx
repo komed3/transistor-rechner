@@ -107,7 +107,7 @@ export const Simulator = ( { t }: Translation ) => {
                 </div>
             </div>
             <div className="flex gap-1 sm:gap-2">
-                { [7, 6, 5, 4, 3, 2, 1, 0].map( bit => (
+                { [7, 6, 5, 4, 3, 2, 1, 0].map( ( bit: number ) => (
                 <button
                     key={bit}
                     onClick={ () => onToggle( bit ) }
@@ -123,6 +123,58 @@ export const Simulator = ( { t }: Translation ) => {
 
     return ( <BrutalistSection title={ t.simulatorTitle } color="yellow">
         <p className="text-lg mb-8 font-bold text-alu-yellow">{ t.simulatorDesc }</p>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Inputs */}
+            <div className="lg:col-span-7 space-y-8">
+                <BitRow label={ t.registerA } value={ regA } onToggle={ ( bit ) => setRegA( toggleBit( regA, bit ) ) } />
+                <BitRow label={ t.registerB } value={ regB } onToggle={ ( bit ) => setRegB( toggleBit( regB, bit ) ) } />
+
+                <div className="space-y-2">
+                    <div className="text-xs font-black opacity-50">{ t.controlLinesTitle }</div>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                        { Object.keys( ctrl ).map( ( key: string ) => (
+                        <button
+                            key={ key }
+                            onClick={ () => toggleCtrl( key as keyof typeof ctrl ) }
+                            className={ `p-2 border-2 font-black text-[10px] sm:text-xs text-center transition-all cursor-pointer ${
+                            ctrl[ key as keyof typeof ctrl ] ? 'bg-alu-blue text-black border-alu-blue' : 'border-alu-white/30 hover:border-alu-white'
+                            }` }
+                        >
+                            { key.toUpperCase() }
+                        </button>
+                    ) ) }</div>
+
+                    <div className="mt-8 pt-6 border-t-2 border-alu-white/10">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-end">
+                            <div className="space-y-3">
+                                <div className="text-xs font-black opacity-50 uppercase tracking-widest">{ t.opsTitle }</div>
+                                <div className="relative group">
+                                    <select
+                                        value={ selectedOp }
+                                        onChange={ ( e ) => setOperation( e.target.value ) }
+                                        className="w-full p-3 bg-black border-2 border-alu-white/30 text-alu-white font-black text-xs appearance-none cursor-pointer focus:border-alu-blue focus:outline-none transition-all brutalist-shadow-sm"
+                                    >
+                                        <option value="" disabled>{ t.ops.custom }</option>
+                                        { Object.entries( t.ops ).map( ( [ key, label ] ) => (
+                                            key !== 'custom' && ( <option key={ key } value={ key } className="bg-black text-alu-white">{ label as string }</option> )
+                                        ) ) }
+                                    </select>
+                                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-alu-white/30 group-hover:text-alu-blue transition-colors text-[8px]">
+                                        ▼
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button
+                                onClick={ resetAll }
+                                className="h-[46px] p-2 border-2 border-alu-pink text-alu-pink font-black text-xs hover:bg-alu-pink hover:text-black transition-all cursor-pointer brutalist-shadow-pink active:translate-x-1 active:translate-y-1 active:shadow-none"
+                            >
+                                { t.clear }
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </BrutalistSection> );
 };
