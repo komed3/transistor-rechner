@@ -28,6 +28,33 @@ export const Simulator = ( { t }: Translation ) => {
         lsr: { invA: false, invB: false, inhC: false, inhAND: false, cin: false, invX: false, rs: true, ls: false },
         lsl: { invA: false, invB: false, inhC: false, inhAND: false, cin: false, invX: false, rs: false, ls: true }
     };
+    
+    useEffect( () => {
+        const foundOp = Object.entries( OP_CONFIGS ).find( ( [ _, config ] ) => {
+            return Object.entries( config ).every( ( [ key, val ] ) => ctrl[ key as keyof typeof ctrl ] === val );
+        } );
+
+        setSelectedOp( foundOp ? foundOp[ 0 ] : '' );
+    }, [ ctrl ] );
+
+    const toggleBit = ( val: number, bit: number ) => val ^ ( 1 << bit );
+    const toggleCtrl = ( key: keyof typeof ctrl ) => {
+        setCtrl( prev => ( { ...prev, [ key ]: !prev[ key ] } ) );
+    };
+  
+    const setOperation = ( op: string ) => {
+        const config = OP_CONFIGS[ op ];
+        if ( config ) {
+            setCtrl( config as typeof ctrl );
+        }
+    };
+
+    const resetAll = () => {
+        setRegA( 0 ), setRegB( 0 ), setSelectedOp( '' ), setCtrl( {
+            invA: false, invB: false, inhC: false, inhAND: false,
+            cin: false, invX: false, rs: false, ls: false
+        } );
+    };
 
     return ( <BrutalistSection title={ t.simulatorTitle } color="yellow">
         <p className="text-lg mb-8 font-bold text-alu-yellow">{ t.simulatorDesc }</p>
