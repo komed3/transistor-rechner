@@ -26,3 +26,39 @@
         cursor: none !important;
     }
 }
+
+@layer utilities {
+    .brutalist-border {
+        @apply border-4 border-alu-white;
+    }
+
+    .brutalist-shadow {
+        box-shadow: 8px 8px 0px 0px rgba( 255 255 255 / 1 );
+    }
+
+    .brutalist-shadow-green {
+        box-shadow: 8px 8px 0px 0px #00ff41;
+    }
+
+    .brutalist-shadow-blue {
+        box-shadow: 8px 8px 0px 0px #00f0ff;
+    }
+
+    .brutalist-shadow-pink {
+        box-shadow: 8px 8px 0px 0px #f0f;
+    }
+
+    .brutalist-shadow-yellow {
+        box-shadow: 8px 8px 0px 0px #ff0;
+    }
+
+    .scanline {
+        background: linear-gradient( to bottom, transparent 50%, rgba( 0 0 0 / 0.5 ) 50% );
+        background-size: 100% 2px;
+        pointer-events: none;
+    }
+}
+
+* {
+    @apply rounded-none;
+}
