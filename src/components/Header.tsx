@@ -1,5 +1,5 @@
 import { SiGithub } from '@icons-pack/react-simple-icons';
-import { Globe } from 'lucide-react';
+import { Languages } from 'lucide-react';
 
 interface HeaderProps {
     t: any;
@@ -19,7 +19,7 @@ export const Header = ( { t, lang, setLang }: HeaderProps ) => {
                 onClick={ () => setLang( lang === 'en' ? 'de' : 'en' )}
                 className="bg-alu-yellow text-black px-4 md:px-6 py-2 md:py-3 font-black brutalist-shadow-blue border-4 border-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-pointer flex items-center gap-2 text-sm md:text-base"
             >
-                <Globe className="w-4 h-4 md:w-5 md:h-5" />
+                <Languages className="w-4 h-4 md:w-5 md:h-5" />
                 { lang.toUpperCase() }
             </button>
 
