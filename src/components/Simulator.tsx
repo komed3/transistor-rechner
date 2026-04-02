@@ -28,7 +28,7 @@ export const Simulator = ( { t }: Translation ) => {
         lsr: { invA: false, invB: false, inhC: false, inhAND: false, cin: false, invX: false, rs: true, ls: false },
         lsl: { invA: false, invB: false, inhC: false, inhAND: false, cin: false, invX: false, rs: false, ls: true }
     };
-    
+
     useEffect( () => {
         const foundOp = Object.entries( OP_CONFIGS ).find( ( [ _, config ] ) => {
             return Object.entries( config ).every( ( [ key, val ] ) => ctrl[ key as keyof typeof ctrl ] === val );
@@ -41,7 +41,7 @@ export const Simulator = ( { t }: Translation ) => {
     const toggleCtrl = ( key: keyof typeof ctrl ) => {
         setCtrl( prev => ( { ...prev, [ key ]: !prev[ key ] } ) );
     };
-  
+
     const setOperation = ( op: string ) => {
         const config = OP_CONFIGS[ op ];
         if ( config ) {
@@ -55,7 +55,7 @@ export const Simulator = ( { t }: Translation ) => {
             cin: false, invX: false, rs: false, ls: false
         } );
     };
-    
+
     // ---- ALU Logic ----
 
     const workA = ctrl.invA ? ( ~regA & 0xFF ) : regA;
@@ -90,14 +90,14 @@ export const Simulator = ( { t }: Translation ) => {
     const c = carryOut;
     const p = finalX.toString( 2 ).split( '1' ).length % 2 === 0;
     const h = halfCarry;
-    const v = ! ctrl.inhC && ! ctrl.inhAND && ! ctrl.ls && ! ctrl.rs && 
+    const v = ! ctrl.inhC && ! ctrl.inhAND && ! ctrl.ls && ! ctrl.rs &&
         ( ( workA & 0x80 ) === ( workB & 0x80 ) ) && ( ( res & 0x80 ) !== ( workA & 0x80 ) );
 
     // ---- Comparator ----
 
     const aEqB = regA === regB;
     const aGtB = regA > regB;
-    
+
     const BitRow = ( { label, value, onToggle }: { label: string, value: number, onToggle: ( bit: number ) => void } ) => (
         <div className="space-y-2">
             <div className="flex justify-between items-center">
