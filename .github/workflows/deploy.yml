@@ -5,9 +5,18 @@ on:
     branches: [ "master" ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true    
+
 jobs:
   deploy:
-    name: Deploy to transistor-rechner.de
+    name: Build & Deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -25,3 +34,11 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./dist
+
+      - name: Deploy to transistor-rechner.de
+        uses: actions/deploy-pages@v5
