@@ -20,6 +20,6 @@ export const Footer = ( { t }: Translation ) => {
                 <div className="w-8 h-8 md:w-10 md:h-10 bg-alu-pink" />
             </div>
         </div>
-        <div className="mt-12 text-center text-[8px] md:text-[10px] text-gray-600 tracking-[0.5em] md:tracking-[1em]">{ t.credits }</div>
+        <div className="mt-12 text-center text-[8px] md:text-[10px] text-gray-500 tracking-[0.5em] md:tracking-[0.8em]">{ t.credits }</div>
     </footer> );
 };
