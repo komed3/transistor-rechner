@@ -25,9 +25,9 @@ export default defineConfig( () => {
             cssCodeSplit: true,
             rollupOptions: { output: { manualChunks ( id ) {
                 if ( id.includes( 'node_modules' ) ) {
+                    if ( id.includes( 'lucide' ) || id.includes( 'simple-icons' ) ) return 'icons';
                     if ( id.includes( 'motion' ) ) return 'motion';
                     if ( id.includes( 'react' ) ) return 'react';
-                    if ( id.includes( 'lucide' ) || id.includes( 'simple-icons' ) ) return 'icons';
                     return 'vendor';
                 }
             } } }
