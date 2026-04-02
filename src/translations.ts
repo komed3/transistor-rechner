@@ -1,6 +1,7 @@
 export const translations = {
     en: {
         title: "8-BIT ALU",
+        credits: "(c) 2026 BY PAUL KÖHLER (KOMED3)",
         subtitle: "TRANSISTOR-BASED ARITHMETIC LOGIC UNIT",
         github: "SOURCE CODE",
         descriptionTitle: "PROJECT DESCRIPTION",
@@ -75,6 +76,7 @@ export const translations = {
     },
     de: {
         title: "8-BIT ALU",
+        credits: "(c) 2026 BY PAUL KÖHLER (KOMED3)",
         subtitle: "TRANSISTOR-BASIERTES RECHENWERK",
         github: "QUELLCODE",
         descriptionTitle: "PROJEKTBESCHREIBUNG",

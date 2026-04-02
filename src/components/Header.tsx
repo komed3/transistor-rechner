@@ -1,7 +1,6 @@
 import { SiGithub } from '@icons-pack/react-simple-icons';
 import { Globe } from 'lucide-react';
 
-
 interface HeaderProps {
     t: any;
     lang: 'en' | 'de';
