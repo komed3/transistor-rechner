@@ -8,6 +8,7 @@ import { Functions } from './components/Functions';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Inputs } from './components/Inputs';
+import { Output } from './components/Output';
 import { ScanLine } from './components/ScanLine';
 import { Table } from './components/Table';
 
@@ -27,6 +28,7 @@ export default function App () {
             <Inputs t={t} />
             <Functions t={t} />
             <Table t={t} />
+            <Output t={t} />
         </main>
         <Footer t={t} />
     </div> );
