@@ -6,6 +6,7 @@ import { CustomCursor } from './components/CustomCursor';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { Inputs } from './components/Inputs';
 import { ScanLine } from './components/ScanLine';
 
 
@@ -21,6 +22,7 @@ export default function App () {
         <Header t={t} lang={lang} setLang={setLang} />
         <main className="max-w-7xl mx-auto w-full z-10">
             <Hero t={t} />
+            <Inputs t={t} />
         </main>
         <Footer t={t} />
     </div> );

@@ -1,10 +1,8 @@
 import { CircuitBoard, Cpu, EthernetPort, Hash } from 'lucide-react';
+import type { Translation } from '../types';
 
-interface HeroProps {
-    t: any;
-}
 
-export const Hero = ( { t }: HeroProps ) => {
+export const Hero = ( { t }: Translation ) => {
     return ( <div className="mb-24">
         <div className="bg-alu-blue text-black p-4 md:p-6 inline-block brutalist-shadow-pink mb-8">
             <p className="text-lg md:text-3xl font-black tracking-widest">{ t.subtitle }</p>

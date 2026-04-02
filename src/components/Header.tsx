@@ -1,14 +1,9 @@
 import { SiGithub } from '@icons-pack/react-simple-icons';
 import { Languages } from 'lucide-react';
-
-interface HeaderProps {
-    t: any;
-    lang: 'en' | 'de';
-    setLang: ( lang: 'en' | 'de' ) => void;
-}
+import type { Translation, Language } from '../types';
 
 
-export const Header = ( { t, lang, setLang }: HeaderProps ) => {
+export const Header = ( { t, lang, setLang }: Translation & Language ) => {
     return ( <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-20 z-10">
         <div className="bg-alu-white text-black p-4 brutalist-shadow-green">
             <h1 className="text-3xl md:text-6xl font-black tracking-tighter leading-none">{t.title}</h1>

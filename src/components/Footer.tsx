@@ -1,11 +1,8 @@
 import { SiGithub } from '@icons-pack/react-simple-icons';
-
-interface FooterProps {
-    t: any;
-}
+import type { Translation } from '../types';
 
 
-export const Footer = ( { t }: FooterProps ) => {
+export const Footer = ( { t }: Translation ) => {
     return ( <footer className="mt-20 border-t-8 border-alu-white pt-12 pb-24">
         <div className="flex flex-col md:flex-row justify-between items-center gap-12">
             <div className="text-center md:text-left">
