@@ -55,6 +55,48 @@ export const Simulator = ( { t }: Translation ) => {
             cin: false, invX: false, rs: false, ls: false
         } );
     };
+    
+    // ---- ALU Logic ----
+
+    const workA = ctrl.invA ? ( ~regA & 0xFF ) : regA;
+    const workB = ctrl.invB ? ( ~regB & 0xFF ) : regB;
+
+    let res = 0;
+    let carryOut = false;
+    let halfCarry = false;
+
+    if ( ctrl.ls ) {
+        res = ( workA << 1 );
+        carryOut = ( workA & 0x80 ) !== 0;
+    } else if ( ctrl.rs ) {
+        res = ( workA >> 1 );
+        carryOut = ( workA & 0x01 ) !== 0;
+    } else if ( ctrl.inhC ) {
+        res = workA ^ workB;
+    } else if ( ctrl.inhAND ) {
+        res = workA | workB;
+    } else {
+        res = workA + workB + ( ctrl.cin ? 1 : 0 );
+        carryOut = res > 0xFF;
+        halfCarry = ( ( workA & 0x0F ) + ( workB & 0x0F ) + ( ctrl.cin ? 1 : 0 ) ) > 0x0F;
+    }
+
+    const finalX = ctrl.invX ? ( ~res & 0xFF ) : ( res & 0xFF );
+
+    // ---- Flags ----
+
+    const z = finalX === 0;
+    const s = ( finalX & 0x80 ) !== 0;
+    const c = carryOut;
+    const p = finalX.toString( 2 ).split( '1' ).length % 2 === 0;
+    const h = halfCarry;
+    const v = ! ctrl.inhC && ! ctrl.inhAND && ! ctrl.ls && ! ctrl.rs && 
+        ( ( workA & 0x80 ) === ( workB & 0x80 ) ) && ( ( res & 0x80 ) !== ( workA & 0x80 ) );
+
+    // ---- Comparator ----
+
+    const aEqB = regA === regB;
+    const aGtB = regA > regB;
 
     return ( <BrutalistSection title={ t.simulatorTitle } color="yellow">
         <p className="text-lg mb-8 font-bold text-alu-yellow">{ t.simulatorDesc }</p>
