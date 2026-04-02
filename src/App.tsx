@@ -10,6 +10,7 @@ import { Hero } from './components/Hero';
 import { Inputs } from './components/Inputs';
 import { Output } from './components/Output';
 import { ScanLine } from './components/ScanLine';
+import { Simulator } from './components/Simulator';
 import { Table } from './components/Table';
 
 
@@ -25,6 +26,7 @@ export default function App () {
         <Header t={t} lang={lang} setLang={setLang} />
         <main className="max-w-7xl mx-auto w-full z-10">
             <Hero t={t} />
+            <Simulator t={t} />
             <Inputs t={t} />
             <Functions t={t} />
             <Table t={t} />
