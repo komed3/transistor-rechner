@@ -145,7 +145,7 @@ export const Simulator = ( { t }: Translation ) => {
                         </button>
                     ) ) }</div>
 
-                    <div className="mt-8 pt-6 border-t-2 border-alu-white/10">
+                    <div className="mt-8 pt-6 border-t-2 border-alu-white/20">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-end">
                             <div className="space-y-3">
                                 <div className="text-xs font-black opacity-50 uppercase tracking-widest">{ t.opsTitle }</div>
@@ -211,9 +211,15 @@ export const Simulator = ( { t }: Translation ) => {
                         } ) }
                     </div>
                     <div className="mt-auto pt-6 flex gap-4">
-                        <div className={ `flex-grow border-2 p-2 text-center text-[10px] font-black ${ aEqB ? 'border-alu-yellow text-alu-yellow' : 'border-alu-white/5 text-alu-white/20' }` }>A=B</div>
-                        <div className={ `flex-grow border-2 p-2 text-center text-[10px] font-black ${ aGtB ? 'border-alu-yellow text-alu-yellow' : 'border-alu-white/5 text-alu-white/20' }` }>A&gt;B</div>
-                        <div className={ `flex-grow border-2 p-2 text-center text-[10px] font-black ${ ( ! aEqB && ! aGtB ) ? 'border-alu-yellow text-alu-yellow' : 'border-alu-white/5 text-alu-white/20' }` }>A&lt;B</div>
+                        <div className={ `flex-grow border-2 p-2 text-center text-[10px] font-black ${
+                            aEqB ? 'border-alu-yellow text-alu-yellow' : 'border-alu-white/20 text-alu-white/30'
+                        }` }>A=B</div>
+                        <div className={ `flex-grow border-2 p-2 text-center text-[10px] font-black ${
+                            aGtB ? 'border-alu-yellow text-alu-yellow' : 'border-alu-white/20 text-alu-white/30'
+                        }` }>A&gt;B</div>
+                        <div className={ `flex-grow border-2 p-2 text-center text-[10px] font-black ${
+                            ( ! aEqB && ! aGtB ) ? 'border-alu-yellow text-alu-yellow' : 'border-alu-white/20 text-alu-white/30'
+                        }` }>A&lt;B</div>
                     </div>
                 </div>
             </div>
