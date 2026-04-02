@@ -1,4 +1,4 @@
-import { Hash } from 'lucide-react';
+import { CircuitBoard, Cpu, EthernetPort, Hash } from 'lucide-react';
 
 interface HeroProps {
     t: any;
@@ -18,14 +18,14 @@ export const Hero = ( { t }: HeroProps ) => {
                 <p className="text-alu-green font-bold italic text-sm md:text-base">{ t.aim }</p>
             </div>
             <div className="flex flex-col justify-center gap-4">
-                <div className="bg-alu-pink text-black p-4 font-black brutalist-shadow text-sm md:text-base">
-                    DISCRETE_TRANSISTORS_ONLY
+                <div className="flex items-center gap-2 bg-alu-white text-black p-4 font-black brutalist-shadow-green text-sm md:text-base">
+                    <CircuitBoard /> DISCRETE_TRANSISTORS_ONLY
                 </div>
-                <div className="bg-alu-white text-black p-4 font-black brutalist-shadow-green text-sm md:text-base">
-                    NO_INTEGRATED_CIRCUITS
+                <div className="flex items-center gap-2 bg-alu-pink text-black p-4 font-black brutalist-shadow text-sm md:text-base">
+                    <EthernetPort /> 8-BIT_PROCESSING_SPAN
                 </div>
-                <div className="bg-alu-green text-black p-4 font-black brutalist-shadow-blue text-sm md:text-base">
-                    8-BIT_PROCESSING_SPAN
+                <div className="flex items-center gap-2 bg-alu-green text-black p-4 font-black brutalist-shadow-blue text-sm md:text-base">
+                    <Cpu /> NO_INTEGRATED_CIRCUITS
                 </div>
             </div>
         </div>
