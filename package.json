@@ -11,7 +11,7 @@
     "@icons-pack/react-simple-icons": "^13.13.0",
     "@tailwindcss/vite": "^4.3.3",
     "@vitejs/plugin-react": "^6.0.4",
-    "lucide-react": "^1.25.0",
+    "lucide-react": "^1.27.0",
     "motion": "^12.42.2",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
