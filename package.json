@@ -10,7 +10,7 @@
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.15.1",
     "@tailwindcss/vite": "^4.3.3",
-    "@vitejs/plugin-react": "^6.0.5",
+    "@vitejs/plugin-react": "^6.1.0",
     "lucide-react": "^1.33.0",
     "motion": "^13.1.0",
     "react": "^19.2.8",
